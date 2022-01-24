@@ -1,0 +1,27 @@
+#!/bin/bash
+###
+# Update EasyStock Mongo Database
+###
+
+# URL of OpenFoodFact MongoDB archive
+offMongoUrl="https://world.openfoodfacts.org/data/openfoodfacts-mongodbdump.tar.gz"
+
+# MongoDB archive local repository
+repository="/home/repository"
+mkdir -p $repository
+
+# Local archive name
+archive="mongodump.tar.gz"
+
+# Get archive from OpenFoodFacts
+curl $offMongoUrl --output $repository/$archive
+
+# Expand archive to the dump folder
+tar -xvf $repository/$archive -C $repository
+
+# Restore dump into easystock db
+/usr/bin/mongorestore --host 127.0.0.1 --db easystock -c products --drop $repository/dump/off/products.bson
+
+# Remove dump folder and archive
+#rm -R $repository/dump
+#rm $repository/$archive
