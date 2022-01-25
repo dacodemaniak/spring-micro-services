@@ -2,14 +2,11 @@ version: '3.4'
 services: 
     database:
         container_name: "address-ms"
-        image: address-mongo:0.1
+        image: macos-mongodb:0.1
         restart: unless-stopped
-        environment: 
-            MONGO_INITDB_ROOT_USERNAME: "sysmgadm"
-            MONGO_INITDB_ROOT_PASSWORD: "5y54Dm1"
-            MONGO_INITDB_DATABASE: "address-repo"
+        env_file: .env
         ports: 
-            - 27017:27017
+            - 27018:27017
         volumes:
             - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
             - ./db:/data/db
