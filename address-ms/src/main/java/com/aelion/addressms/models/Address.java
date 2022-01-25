@@ -11,12 +11,15 @@ import lombok.NoArgsConstructor;
 public class Address {
 	private String id;
 	private String streetNumber;
+	private String streetName;
 	private String streetCpl;
 	private String building;
 	private String stair;
 	private String apptNumber;
 	private String zipCode;
 	private String city;
+	
+	
 	public String getStreetNumber() {
 		return streetNumber;
 	}
@@ -55,6 +58,18 @@ public class Address {
 	}
 	public String getId() {
 		return id;
+	}
+	public String getStreetName() {
+		return streetName;
+	}
+	public void setStreetName(String streetName) {
+		this.streetName = streetName;
+	}
+	public String getApptNumber() {
+		return apptNumber;
+	}
+	public void setApptNumber(String apptNumber) {
+		this.apptNumber = apptNumber;
 	}
 	
 	
