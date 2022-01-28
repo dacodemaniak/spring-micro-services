@@ -1,0 +1,6 @@
+spring.application.name=<your-app-name>
+server.port=<app-port>
+spring.cloud.config.server.git.uri=<github-gitlab-uri>
+spring.cloud.config.server.git.username=<your-git-user-name>
+spring.cloud.config.server.git.password=<your-git-user-password>
+spring.cloud.config.server.git.clone-on-start=true
