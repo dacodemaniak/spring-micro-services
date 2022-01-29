@@ -2,10 +2,13 @@ package com.aelion.microservices.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableEurekaClient
+@EnableFeignClients("com.aelion.microservices.gateway")
+@EnableDiscoveryClient
 public class GatewayApplication {
 
 	public static void main(String[] args) {
